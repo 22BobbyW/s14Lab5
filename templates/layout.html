@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 5</title>
+
+    <!-- Styles -->
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+    <!-- Fashes -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Scripts -->
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>

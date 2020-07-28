@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <h1>Login form</h1>
+    <h1 style="text-align: center">Login form</h1>
 
     <form method="POST" action="/login">
         {{ form.hidden_tag() }}
@@ -24,7 +24,6 @@
         </div>
 
         <div class="form-group">
-
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}<br>
             {% for error in form.password.errors %}
@@ -32,10 +31,10 @@
             {% endfor %}
         </div>
 
-        {{ form.submit(class="form-submit") }}
-
+        <div>
+            <button class="btn btn-primary login-form-submit mb-3">Login</button>
+            <p>New User? <a href="{{ url_for('signup') }}">Click to Register!</a></p>
+        </div>
     </form>
-
-    <p>New User? <a href="{{ url_for('signup') }}">Click to Register!</a></p>
 
 {% endblock %}

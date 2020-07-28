@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <h1>Signup form</h1>
+    <h1 style="text-align: center">Signup form</h1>
 
     <form method="POST" action="/signup">
         {{ form.hidden_tag() }}
@@ -30,10 +30,11 @@
             {% endfor %}
         </div>
 
-        {{ form.submit(class="form-submit") }}
+        <div>
+            <button class="btn btn-primary signup-form-submit mb-3">Sign up</button>
+            <p>Already signed up? <a href="{{ url_for('login') }}">Log in!</a></p>
+        </div>
 
     </form>
-
-    <p>Already signed up? <a href="{{ url_for('login') }}">Log in!</a></p>
 
 {% endblock %}

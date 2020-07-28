@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <h1>New Post</h1>
+    <h1 style="text-align: center">New Post</h1>
 
     <form method="POST" action="/newpost">
         {{ form.hidden_tag() }}
@@ -22,8 +22,9 @@
             {% endfor %}
         </div>
 
-        {{ form.submit(class="form-submit") }}
-
+        <div>
+            <button class="btn btn-primary newpost-form-submit mb-3">Post</button>
+        </div>
     </form>
 
 {% endblock %}

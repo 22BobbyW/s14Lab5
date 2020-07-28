@@ -8,40 +8,54 @@
 {% endblock %}
 
 {% block content %}
+    <div class="mb-3">
+        {% if session_username is defined %}
+            <h1 style="border-bottom: 3px solid orangered; display: inline-flex; text-align: center">Hi, {{ session_username }} !</h1>
+        {% else %}
+            <h1 style="border-bottom: 3px solid orangered; display: inline-flex; text-align: center">Hi, guest!</h1>
+        {% endif %}
 
-    {% if session_username is defined %}
+    </div>
 
-        <h1>Hi, {{ session_username }} !</h1>
-
-    {% else %}
-
-        <h1>Hi, guest!</h1>
-
-    {% endif %}
-
-
-    <div id="posts">
-        {% for p in posts %}
-            <p> {{ users[p.author] }}: {{ p.content }}, {{ p.made }}</p>
-        {% endfor %}
+    <div id="carousel" class="carousel slide mb-3" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <p class="mb-1"> stored </p>
+                <p> messages</p>
+            </div>
+            {% for p in posts %}
+                <div class="carousel-item">
+                    <p class="mb-1"> {{ users[p.author] }}: {{ p.content }} </p>
+                    <p> {{ p.made }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
 
     <div id="forms">
         {% if session_username is defined %}
             <form action="/logout" method="POST">
-                <button type="submit"> Log out</button>
+                <button class="btn btn-info submit mb-3">Log out</button>
             </form>
 
             <form action="/newpost" method="GET">
-                <button type="submit"> New Post</button>
+                <button class="btn btn-info submit">New Post</button>
             </form>
         {% else %}
             <form action="/login" method="GET">
-                <button type="submit"> Log in</button>
+                <button class="btn btn-info submit mb-3">Log in</button>
             </form>
             <form action="/signup" method="GET">
-                <button type="submit"> Sign up</button>
+                <button class="btn btn-info submit">Sign up</button>
             </form>
         {% endif %}
     </div>

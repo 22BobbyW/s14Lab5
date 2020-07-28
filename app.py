@@ -13,7 +13,7 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/lab5'
 heroku = Heroku(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = environ.get('SECRET_KEY')
+app.secret_key = 's14a-key'
 Db.init_app(app)
 
 
